@@ -1,0 +1,29 @@
+{
+  "asset_count": 1,
+  "file_count": 1,
+  "assets": [
+    {
+      "name": "hello GOLD v1",
+      "id_type": "MATERIAL",
+      "files": [
+        "assets/Materials/hello Gold.blend"
+      ],
+      "bl_versions": {
+        "min": "5.2"
+      },
+      "thumbnail": {
+        "url": "assets/Materials/hello%20Gold_thumbnails/Material/hello-gold-v1.webp",
+        "hash": "SHA256:fed5ca1dbba64885940b2a59271bd10962e3feeb5a792786412bd8d0e56eab51"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/Materials/hello Gold.blend",
+      "size_in_bytes": 122366,
+      "hash": "SHA256:7c4bd0e577ed10c8023bc6cdf89661af100b8ae26dad2a8367a6a3207db75aff",
+      "blender_version": "5.2.44",
+      "url": "assets/Materials/hello%20Gold.blend"
+    }
+  ]
+}
