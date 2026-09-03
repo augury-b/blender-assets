@@ -1,6 +1,6 @@
 {
-  "asset_count": 1,
-  "file_count": 1,
+  "asset_count": 2,
+  "file_count": 2,
   "assets": [
     {
       "name": "hello GOLD v1",
@@ -15,6 +15,20 @@
         "url": "assets/Materials/hello%20Gold_thumbnails/Material/hello-gold-v1.webp",
         "hash": "SHA256:fed5ca1dbba64885940b2a59271bd10962e3feeb5a792786412bd8d0e56eab51"
       }
+    },
+    {
+      "name": "recursive voronoi v1",
+      "id_type": "MATERIAL",
+      "files": [
+        "assets/Materials/recursive vornoi.blend"
+      ],
+      "bl_versions": {
+        "min": "5.2"
+      },
+      "thumbnail": {
+        "url": "assets/Materials/recursive%20vornoi_thumbnails/Material/recursive-voronoi-v1.webp",
+        "hash": "SHA256:82b3c347ef39913a1a59666b8a3c0772bf55d4bbdfd1865c5aa00e6414a3f196"
+      }
     }
   ],
   "files": [
@@ -24,6 +38,13 @@
       "hash": "SHA256:7c4bd0e577ed10c8023bc6cdf89661af100b8ae26dad2a8367a6a3207db75aff",
       "blender_version": "5.2.44",
       "url": "assets/Materials/hello%20Gold.blend"
+    },
+    {
+      "path": "assets/Materials/recursive vornoi.blend",
+      "size_in_bytes": 157222,
+      "hash": "SHA256:688f2f1e1ae90e5ba368903b84941741ca372e07d8fd04963840bccb2eef77e3",
+      "blender_version": "5.2.44",
+      "url": "assets/Materials/recursive%20vornoi.blend"
     }
   ]
 }
