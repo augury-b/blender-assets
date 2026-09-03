@@ -1,0 +1,14 @@
+eace32ec-fd4d-5766-bf7c-927ac2955774:Augury Assets:Augury Assets
+b2f79cf3-bb93-5a7a-bedd-794184425622:Augury Assets/Models:Models
+adc94573-fb76-5d79-bc92-e9bea3fe1b9e:Augury Assets/Geometry Nodes:Geometry Nodes
+c8f8e9e7-7e48-54fa-acdb-41cb28589bb3:Augury Assets/Geometry Nodes/Selectors:Selectors
+9f9a2013-66fa-5ddc-b5b4-e0801cf22852:Augury Assets/Geometry Nodes/Generators:Generators
+7ce868da-276b-5014-b972-edb6de6f8acc:Augury Assets/Geometry Nodes/Deformers:Deformers
+97a865cf-7a43-50c7-b424-f9d568082af4:Augury Assets/Shaders:Shaders
+9b4b7317-0790-5978-8973-b3a190906df1:Augury Assets/Shaders/Materials:Materials
+627b2090-8f65-5550-b172-bd7fb4430183:Augury Assets/Shaders/Materials/Stylized:Stylized
+c92dfb79-619f-5e9f-a72f-8a6d45146fe8:Augury Assets/Shaders/Materials/Photoreal:Photoreal
+993f6f58-f164-5273-9617-60ce72cc6d5e:Augury Assets/Shaders/Node Groups:Node Groups
+32405548-84f5-58cc-9fe8-7592e3340477:Augury Assets/Compositor:Compositor
+bf356e11-2f8a-52a3-8ac5-b8570883123a:Augury Assets/Compositor/Node Groups:Node Groups
+67891205-130b-5964-a18b-c9d9b5086712:Augury Assets/Other:Other

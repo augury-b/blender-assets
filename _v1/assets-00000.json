@@ -14,6 +14,14 @@
       "thumbnail": {
         "url": "assets/Materials/hello%20Gold_thumbnails/Material/hello-gold-v1.webp",
         "hash": "SHA256:fed5ca1dbba64885940b2a59271bd10962e3feeb5a792786412bd8d0e56eab51"
+      },
+      "meta": {
+        "catalog_id": "9b4b7317-0790-5978-8973-b3a190906df1",
+        "tags": [
+          "Augury",
+          "Material",
+          "Shader"
+        ]
       }
     },
     {
@@ -28,21 +36,29 @@
       "thumbnail": {
         "url": "assets/Materials/recursive%20vornoi_thumbnails/Material/recursive-voronoi-v1.webp",
         "hash": "SHA256:82b3c347ef39913a1a59666b8a3c0772bf55d4bbdfd1865c5aa00e6414a3f196"
+      },
+      "meta": {
+        "catalog_id": "9b4b7317-0790-5978-8973-b3a190906df1",
+        "tags": [
+          "Augury",
+          "Material",
+          "Shader"
+        ]
       }
     }
   ],
   "files": [
     {
       "path": "assets/Materials/hello Gold.blend",
-      "size_in_bytes": 122366,
-      "hash": "SHA256:7c4bd0e577ed10c8023bc6cdf89661af100b8ae26dad2a8367a6a3207db75aff",
+      "size_in_bytes": 122085,
+      "hash": "SHA256:b7b9681ab9df11595427f8eb23a479b23a088002c6e41abb5cd8dcf999af49b5",
       "blender_version": "5.2.44",
       "url": "assets/Materials/hello%20Gold.blend"
     },
     {
       "path": "assets/Materials/recursive vornoi.blend",
-      "size_in_bytes": 157222,
-      "hash": "SHA256:688f2f1e1ae90e5ba368903b84941741ca372e07d8fd04963840bccb2eef77e3",
+      "size_in_bytes": 152901,
+      "hash": "SHA256:fbc1d95fe7bb709705dcd70e2a97ba6c4bec5b402e26bdff1ba3fac31dc1f2f1",
       "blender_version": "5.2.44",
       "url": "assets/Materials/recursive%20vornoi.blend"
     }

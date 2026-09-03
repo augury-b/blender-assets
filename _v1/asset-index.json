@@ -1,13 +1,112 @@
 {
   "schema_version": "1.0.0",
-  "asset_size_bytes": 279588,
+  "asset_size_bytes": 274986,
   "asset_count": 2,
   "file_count": 2,
   "pages": [
     {
       "url": "_v1/assets-00000.json",
-      "hash": "SHA256:1027ee3bedf5193dc45944e503f7321cebe459d57e1a8b3d382beb14787dd585"
+      "hash": "SHA256:3f3a6cff795971b7268eeda7f1eee12bb22595d6dcd489b0c044b9577381358b"
     }
   ],
-  "catalogs": []
+  "catalogs": [
+    {
+      "path": "Augury Assets",
+      "uuids": [
+        "eace32ec-fd4d-5766-bf7c-927ac2955774"
+      ],
+      "simple_name": "Augury Assets"
+    },
+    {
+      "path": "Augury Assets/Compositor",
+      "uuids": [
+        "32405548-84f5-58cc-9fe8-7592e3340477"
+      ],
+      "simple_name": "Compositor"
+    },
+    {
+      "path": "Augury Assets/Compositor/Node Groups",
+      "uuids": [
+        "bf356e11-2f8a-52a3-8ac5-b8570883123a"
+      ],
+      "simple_name": "Node Groups"
+    },
+    {
+      "path": "Augury Assets/Geometry Nodes",
+      "uuids": [
+        "adc94573-fb76-5d79-bc92-e9bea3fe1b9e"
+      ],
+      "simple_name": "Geometry Nodes"
+    },
+    {
+      "path": "Augury Assets/Geometry Nodes/Deformers",
+      "uuids": [
+        "7ce868da-276b-5014-b972-edb6de6f8acc"
+      ],
+      "simple_name": "Deformers"
+    },
+    {
+      "path": "Augury Assets/Geometry Nodes/Generators",
+      "uuids": [
+        "9f9a2013-66fa-5ddc-b5b4-e0801cf22852"
+      ],
+      "simple_name": "Generators"
+    },
+    {
+      "path": "Augury Assets/Geometry Nodes/Selectors",
+      "uuids": [
+        "c8f8e9e7-7e48-54fa-acdb-41cb28589bb3"
+      ],
+      "simple_name": "Selectors"
+    },
+    {
+      "path": "Augury Assets/Models",
+      "uuids": [
+        "b2f79cf3-bb93-5a7a-bedd-794184425622"
+      ],
+      "simple_name": "Models"
+    },
+    {
+      "path": "Augury Assets/Other",
+      "uuids": [
+        "67891205-130b-5964-a18b-c9d9b5086712"
+      ],
+      "simple_name": "Other"
+    },
+    {
+      "path": "Augury Assets/Shaders",
+      "uuids": [
+        "97a865cf-7a43-50c7-b424-f9d568082af4"
+      ],
+      "simple_name": "Shaders"
+    },
+    {
+      "path": "Augury Assets/Shaders/Materials",
+      "uuids": [
+        "9b4b7317-0790-5978-8973-b3a190906df1"
+      ],
+      "simple_name": "Materials"
+    },
+    {
+      "path": "Augury Assets/Shaders/Materials/Photoreal",
+      "uuids": [
+        "c92dfb79-619f-5e9f-a72f-8a6d45146fe8"
+      ],
+      "simple_name": "Photoreal"
+    },
+    {
+      "path": "Augury Assets/Shaders/Materials/Stylized",
+      "uuids": [
+        "627b2090-8f65-5550-b172-bd7fb4430183"
+      ],
+      "simple_name": "Stylized"
+    },
+    {
+      "path": "Augury Assets/Shaders/Node Groups",
+      "uuids": [
+        "993f6f58-f164-5273-9617-60ce72cc6d5e"
+      ],
+      "simple_name": "Node Groups"
+    }
+  ]
 }
