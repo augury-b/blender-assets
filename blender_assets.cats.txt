@@ -1,3 +1,9 @@
+# This is an Asset Catalog Definition file for Blender.
+# Empty lines and lines starting with '#' will be ignored.
+# The first non-comment line must be 'VERSION <number>'.
+
+VERSION 1
+
 eace32ec-fd4d-5766-bf7c-927ac2955774:Augury Assets:Augury Assets
 b2f79cf3-bb93-5a7a-bedd-794184425622:Augury Assets/Models:Models
 adc94573-fb76-5d79-bc92-e9bea3fe1b9e:Augury Assets/Geometry Nodes:Geometry Nodes

@@ -12,10 +12,8 @@ POSSIBLE_BLENDER_PATHS = [
     r"C:\Program Files\Blender Foundation\Blender\blender.exe",
 ]
 
-# Namespace for deterministic UUIDv5 generation
 CATALOG_NAMESPACE = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")
 
-# Canonical catalog hierarchy
 CATALOG_DEFINITIONS = {
     "Augury Assets": "Augury Assets",
     # 1. Models
@@ -57,40 +55,30 @@ def run_cmd(cmd, desc):
 
 
 def sync_catalog_file(root_dir: Path) -> dict[str, str]:
-    """Ensures blender_assets.cats.txt exists with matching UUIDs."""
+    """Generates a valid blender_assets.cats.txt with the mandatory VERSION 1 header."""
     print("\n[+] Synchronizing blender_assets.cats.txt...")
     cats_file = root_dir / "blender_assets.cats.txt"
-    path_to_uuid = {}
+    path_to_uuid = {
+        cat_path: str(uuid.uuid5(CATALOG_NAMESPACE, cat_path))
+        for cat_path in CATALOG_DEFINITIONS.keys()
+    }
 
-    existing_lines = []
-    if cats_file.exists():
-        existing_lines = cats_file.read_text(encoding="utf-8").splitlines()
-    else:
-        existing_lines = [
-            "# This is an Asset Catalog Definition file for Blender.",
-            "# Format: <UUID>:<catalog_path>:<simple_catalog_name>",
-            "VERSION 1",
-            "",
-        ]
+    header = (
+        "# This is an Asset Catalog Definition file for Blender.\n"
+        "# Empty lines and lines starting with '#' will be ignored.\n"
+        "# The first non-comment line must be 'VERSION <number>'.\n"
+        "\n"
+        "VERSION 1\n"
+        "\n"
+    )
 
-    existing_content = "\n".join(existing_lines)
-    lines_to_add = []
+    # Rebuild file completely to guarantee valid structure and UUID mappings
+    with open(cats_file, "w", encoding="utf-8") as f:
+        f.write(header)
+        for cat_path, display_name in CATALOG_DEFINITIONS.items():
+            f.write(f"{path_to_uuid[cat_path]}:{cat_path}:{display_name}\n")
 
-    for cat_path, display_name in CATALOG_DEFINITIONS.items():
-        cat_uuid = str(uuid.uuid5(CATALOG_NAMESPACE, cat_path))
-        path_to_uuid[cat_path] = cat_uuid
-
-        if cat_uuid not in existing_content:
-            lines_to_add.append(f"{cat_uuid}:{cat_path}:{display_name}")
-
-    if lines_to_add:
-        with open(cats_file, "a", encoding="utf-8") as f:
-            for line in lines_to_add:
-                f.write(f"{line}\n")
-        print(f"[✓] Added {len(lines_to_add)} catalog definitions.")
-    else:
-        print("[✓] Catalog definitions are up to date.")
-
+    print(f"[✓] Wrote {len(CATALOG_DEFINITIONS)} catalogs with valid header to {cats_file.name}")
     return path_to_uuid
 
 
@@ -113,8 +101,10 @@ def normalize_tags(asset_data, extra_tags=None):
             cleaned_tags.add(t.title())
     cleaned_tags.add("Augury")
 
-    while len(asset_data.tags) > 0:
-        asset_data.tags.remove(asset_data.tags[0])
+    # Safe removal via list copy
+    for old_tag in list(asset_data.tags):
+        asset_data.tags.remove(old_tag)
+        
     for tag in sorted(cleaned_tags):
         asset_data.tags.new(tag)
 
@@ -132,7 +122,6 @@ def route_material(mat):
     blob, tokens = get_search_context(mat)
     extra_tags = ["Material", "Shader"]
 
-    # Subcategory check: Stylized vs Photoreal vs Base Materials
     if any(k in blob for k in ["stylized", "toon", "npr", "anime"]):
         chosen_cat = "Augury Assets/Shaders/Materials/Stylized"
         extra_tags.append("Stylized")
@@ -142,7 +131,7 @@ def route_material(mat):
     else:
         chosen_cat = "Augury Assets/Shaders/Materials"
 
-    if "procedural" in blob or "proc" in tokens:
+    if "procedural" in blob or "proc" in tokens or "voronoi" in blob:
         extra_tags.append("Procedural")
 
     mat.asset_data.catalog_id = CAT_MAP.get(chosen_cat, CAT_MAP.get("Augury Assets/Other"))
@@ -155,7 +144,6 @@ def route_node_group(ng):
         
     blob, tokens = get_search_context(ng)
     
-    # 1. Geometry Nodes
     if ng.type == 'GEOMETRY':
         extra_tags = ["Geometry Nodes"]
         if any(k in blob for k in ["selector", "select"]):
@@ -170,12 +158,10 @@ def route_node_group(ng):
         else:
             chosen_cat = "Augury Assets/Geometry Nodes"
 
-    # 2. Shader Node Groups (utility nodes, custom PBR graphs, noise setups)
     elif ng.type == 'SHADER':
         chosen_cat = "Augury Assets/Shaders/Node Groups"
         extra_tags = ["Shader", "Node Group"]
 
-    # 3. Compositor Node Groups (grade passes, lens FX, halation, grain)
     elif ng.type == 'COMPOSITING':
         chosen_cat = "Augury Assets/Compositor/Node Groups"
         extra_tags = ["Compositor", "Node Group"]
@@ -214,17 +200,14 @@ def route_generic(item, fallback_tag="Other"):
 
 modified = False
 
-# 1. Materials (under Shaders -> Materials)
 for mat in bpy.data.materials:
     if route_material(mat):
         modified = True
 
-# 2. Node Groups (Geometry, Shader, and Compositor)
 for ng in bpy.data.node_groups:
     if route_node_group(ng):
         modified = True
 
-# 3. Models (Objects & Collections)
 for obj in bpy.data.objects:
     if route_model(obj):
         modified = True
@@ -232,7 +215,6 @@ for col in bpy.data.collections:
     if route_model(col):
         modified = True
 
-# 4. Fallbacks (Actions, Worlds, Brushes)
 for act in bpy.data.actions:
     if route_generic(act, "Animation"):
         modified = True
@@ -258,11 +240,13 @@ if modified:
 
     try:
         for blend in blend_files:
-            subprocess.run(
+            res = subprocess.run(
                 [blender_bin, "-b", str(blend), "-P", str(temp_script)],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
+                capture_output=True,
+                text=True,
             )
+            if res.returncode != 0:
+                print(f"[-] Error processing {blend.name}:\n{res.stderr}")
     finally:
         if temp_script.exists():
             temp_script.unlink()
@@ -280,10 +264,10 @@ def main():
 
     print(f"[+] Using Blender binary: {blender}")
 
-    # 1. Synchronize blender_assets.cats.txt with fixed UUIDs
+    # 1. Write the catalog file with valid VERSION 1 header
     path_to_uuid = sync_catalog_file(repo_root)
 
-    # 2. Parse all .blend files, route to catalogs, and clean tags
+    # 2. Tag assets and assign catalog IDs
     consolidate_and_tag_assets(blender, repo_root, path_to_uuid)
 
     # 3. Generate native Blender preview listing

@@ -2,7 +2,7 @@
   "api_versions": {
     "v1": {
       "url": "_v1/asset-index.json",
-      "hash": "SHA256:d824146a42d2f93147642284ca84669c9ffcce9aab58fd0ef625df269ac17d24"
+      "hash": "SHA256:70f64fd67415b318c5b75098972a957ffe0273e0893cf3ce0b89bc0d68b85eef"
     }
   },
   "name": "Augury Blender Asset Library",

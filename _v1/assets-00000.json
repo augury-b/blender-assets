@@ -42,6 +42,7 @@
         "tags": [
           "Augury",
           "Material",
+          "Procedural",
           "Shader"
         ]
       }
@@ -50,15 +51,15 @@
   "files": [
     {
       "path": "assets/Materials/hello Gold.blend",
-      "size_in_bytes": 122085,
-      "hash": "SHA256:b7b9681ab9df11595427f8eb23a479b23a088002c6e41abb5cd8dcf999af49b5",
+      "size_in_bytes": 122083,
+      "hash": "SHA256:7acd8952fb63a5c2c1d59fab204e4e0ccffdf749a949a35df6404bfc58e1d776",
       "blender_version": "5.2.44",
       "url": "assets/Materials/hello%20Gold.blend"
     },
     {
       "path": "assets/Materials/recursive vornoi.blend",
-      "size_in_bytes": 152901,
-      "hash": "SHA256:fbc1d95fe7bb709705dcd70e2a97ba6c4bec5b402e26bdff1ba3fac31dc1f2f1",
+      "size_in_bytes": 152845,
+      "hash": "SHA256:9e832855667aa58971f3aa7c6689b008051792015f68540e3ae680319cf406a4",
       "blender_version": "5.2.44",
       "url": "assets/Materials/recursive%20vornoi.blend"
     }
