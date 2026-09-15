@@ -1,6 +1,6 @@
 {
-  "asset_count": 2,
-  "file_count": 2,
+  "asset_count": 3,
+  "file_count": 3,
   "assets": [
     {
       "name": "hello GOLD v1",
@@ -46,22 +46,51 @@
           "Shader"
         ]
       }
+    },
+    {
+      "name": "subscribe to augury",
+      "id_type": "MATERIAL",
+      "files": [
+        "assets/Materials/yt material tutorial.blend"
+      ],
+      "bl_versions": {
+        "min": "5.2"
+      },
+      "thumbnail": {
+        "url": "assets/Materials/yt%20material%20tutorial_thumbnails/Material/subscribe-to-augury.webp",
+        "hash": "SHA256:573bed19504080a0a0e7d0b4924964c95c01f2e2c0cbc680019f7c90bbfa24d0"
+      },
+      "meta": {
+        "catalog_id": "9b4b7317-0790-5978-8973-b3a190906df1",
+        "tags": [
+          "Augury",
+          "Material",
+          "Shader"
+        ]
+      }
     }
   ],
   "files": [
     {
       "path": "assets/Materials/hello Gold.blend",
-      "size_in_bytes": 122083,
-      "hash": "SHA256:7acd8952fb63a5c2c1d59fab204e4e0ccffdf749a949a35df6404bfc58e1d776",
+      "size_in_bytes": 122085,
+      "hash": "SHA256:61b6399b90e29e8096cb9f37dc743122b6a0185f77a92bd5a576cf5038d8a084",
       "blender_version": "5.2.44",
       "url": "assets/Materials/hello%20Gold.blend"
     },
     {
       "path": "assets/Materials/recursive vornoi.blend",
-      "size_in_bytes": 152845,
-      "hash": "SHA256:9e832855667aa58971f3aa7c6689b008051792015f68540e3ae680319cf406a4",
+      "size_in_bytes": 165185,
+      "hash": "SHA256:b196255fe3c17092fb07d116641ada86a0a4835d7c8e728aaa4e538636394ba5",
       "blender_version": "5.2.44",
       "url": "assets/Materials/recursive%20vornoi.blend"
+    },
+    {
+      "path": "assets/Materials/yt material tutorial.blend",
+      "size_in_bytes": 136820,
+      "hash": "SHA256:c538ef983c834690e7aa740925453891b4a040a7cd99bb9de7f0cc63d29fa7f8",
+      "blender_version": "5.2.44",
+      "url": "assets/Materials/yt%20material%20tutorial.blend"
     }
   ]
 }
